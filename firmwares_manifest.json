@@ -1,0 +1,53 @@
+{
+  "last_updated": "2026-04-15",
+  "firmwares": [
+    {
+      "id": "TouchString",
+      "name": "Touch Strings",
+      "bin_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchString/TouchString.bin",
+      "md_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchString/README.md"
+    },
+    {
+      "id": "TouchBassV1",
+      "name": "Touch Bass V1",
+      "bin_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchBass/TouchBass.bin",
+      "md_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchBass/README.md"
+    },
+    {
+      "id": "TouchBassV2",
+      "name": "Touch Bass V2",
+      "bin_url": "https://github.com/Synthux-Academy/TouchBass/releases/latest/download/TouchBass.bin",
+      "md_url": "https://raw.githubusercontent.com/Synthux-Academy/TouchBass/main/README.md"
+    },
+    {
+      "id": "TouchFX",
+      "name": "Touch FX",
+      "bin_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchFX/TouchFX.bin",
+      "md_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchFX/README.md"
+    },
+    {
+      "id": "TouchLooper",
+      "name": "Touch Looper",
+      "bin_url": "https://github.com/Synthux-Academy/simple-touch-instruments/blob/main/daisyduino/TouchLooper/TouchLooper.bin",
+      "md_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchLooper/README.md"
+    },
+    {
+      "id": "TouchSlicer",
+      "name": "Touch Slicer",
+      "bin_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchSlicer/TouchSlicer.bin",
+      "md_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchSlicer/README.md"
+    },
+    {
+      "id": "TouchDrums",
+      "name": "Touch Drums",
+      "bin_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchDrumMachine/TouchDrumMachine.bin",
+      "md_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchDrumMachine/README.md"
+    },
+    {
+      "id": "TouchDrone",
+      "name": "Touch Drone",
+      "bin_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchDrone/TouchDrone.bin",
+      "md_url": "https://raw.githubusercontent.com/Synthux-Academy/simple-touch-instruments/main/daisyduino/TouchDrone/README.md"
+    }
+  ]
+}
