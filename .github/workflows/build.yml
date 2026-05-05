@@ -1,0 +1,97 @@
+name: Build Standalone Executables
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            platform_name: Windows
+            artifact_name: DaisySeedLocalOfflineFlasher-Windows.exe
+            pyinstaller_sep: ";"
+          - os: macos-latest
+            platform_name: macOS
+            artifact_name: DaisySeedLocalOfflineFlasher-macOS
+            pyinstaller_sep: ":"
+          - os: ubuntu-latest
+            platform_name: Linux
+            artifact_name: DaisySeedLocalOfflineFlasher-Linux
+            pyinstaller_sep: ":"
+
+    runs-on: ${{ matrix.os }}
+    name: Build for ${{ matrix.platform_name }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyinstaller
+
+      - name: Build with PyInstaller (Windows)
+        if: matrix.os == 'windows-latest'
+        run: >
+          pyinstaller
+          --onefile
+          --windowed
+          --name DaisySeedFlasher
+          --add-data "img;img"
+          --add-data "firmwares_manifest.json;."
+          daisy_seed_flasher.py
+
+      - name: Build with PyInstaller (macOS / Linux)
+        if: matrix.os != 'windows-latest'
+        run: >
+          pyinstaller
+          --onefile
+          --windowed
+          --name DaisySeedFlasher
+          --add-data "img:img"
+          --add-data "firmwares_manifest.json:."
+          daisy_seed_flasher.py
+
+      - name: Rename output (Windows)
+        if: matrix.os == 'windows-latest'
+        run: mv dist/DaisySeedFlasher.exe dist/${{ matrix.artifact_name }}
+
+      - name: Rename output (macOS / Linux)
+        if: matrix.os != 'windows-latest'
+        run: mv dist/DaisySeedFlasher dist/${{ matrix.artifact_name }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: dist/${{ matrix.artifact_name }}
+
+  release:
+    name: Create GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist/
+
+      - name: Create release and upload assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/**/*
+          generate_release_notes: true
+          overwrite: true

@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.spec
+
+# Virtual environments
+venv/
+env/
+.env/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Firmware files (keep the folder, not the contents)
+firmwares/*.bin
+firmwares/*.md
+!firmwares/.gitkeep
+
+# Downloaded binaries (dfu-util and Zadig — installed at runtime)
+bin/
+
+# PyInstaller output
+dist/
+build/
+
+# Internal architecture / development docs (not for end users)
+CLOUD_SYNC_ARCHITECTURE.md
+FUTURE_ENHANCEMENTS.md
+
+# Datasheets and other large reference files
+*.pdf
